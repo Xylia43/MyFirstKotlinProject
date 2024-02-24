@@ -8,4 +8,5 @@
     <string name="second_description">Creates a composable that lays out and draws a given Painter class object.</string>
     <string name="third_description">A layout composable that places its children in a horizontal sequence.</string>
     <string name="fourth_description">A layout composable that places its children in a vertical sequence.</string>
+    <string name="roll">Roll</string>
 </resources>
