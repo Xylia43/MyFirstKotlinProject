@@ -5,6 +5,7 @@ package com.example.first
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -531,6 +532,7 @@ fun TipTimeLayout() {
         EditNumberField(
             label = R.string.bill_amount,
             value = amountInput,
+            leadingIcon = R.drawable.money,
             onValueChanged = { amountInput = it },
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Number,
@@ -543,6 +545,7 @@ fun TipTimeLayout() {
         EditNumberField(
             label = R.string.how_was_the_service,
             value = tipInput,
+            leadingIcon = R.drawable.percent,
             onValueChanged = { tipInput = it},
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Number,
@@ -593,13 +596,15 @@ fun EditNumberField(
 @Composable
 fun EditNumberField(
     @StringRes label: Int ,
+    @DrawableRes leadingIcon: Int ,
     value: String ,
     onValueChanged: (String) -> Unit ,
-    keyboardOptions: KeyboardOptions,
+    keyboardOptions: KeyboardOptions ,
     modifier: Modifier = Modifier
 ){
     TextField(
         value = value,
+        leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
         onValueChange = onValueChanged,
         modifier = modifier,
         singleLine = true,
