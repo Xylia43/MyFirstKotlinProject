@@ -312,10 +312,11 @@ fun Lemonade(modifier: Modifier= Modifier
                 Image(
                     painter = painterResource(id = R.drawable.lemon_tree) ,
                     contentDescription = stringResource(id = R.string.lemonTree),
-                    modifier = Modifier.wrapContentSize()
+                    modifier = Modifier
+                        .wrapContentSize()
                         .clickable {
                             currentStep = 2
-                    }
+                        }
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(stringResource(id = R.string.selectLemon))
@@ -329,10 +330,11 @@ fun Lemonade(modifier: Modifier= Modifier
                 Image(
                     painter = painterResource(id = R.drawable.lemon_squeeze) ,
                     contentDescription = stringResource(id = R.string.lemon),
-                    modifier = Modifier.wrapContentSize()
+                    modifier = Modifier
+                        .wrapContentSize()
                         .clickable {
                             clicktimes++
-                            if( clicktimes>= squeezetimes){
+                            if (clicktimes >= squeezetimes) {
                                 currentStep = 3
                             }
                         }
@@ -347,7 +349,8 @@ fun Lemonade(modifier: Modifier= Modifier
                 Image(
                     painter = painterResource(id = R.drawable.lemon_drink) ,
                     contentDescription = stringResource(id = R.string.glassOfLemonade),
-                    modifier = Modifier.wrapContentSize()
+                    modifier = Modifier
+                        .wrapContentSize()
                         .clickable {
                             currentStep = 4
                         }
@@ -362,7 +365,8 @@ fun Lemonade(modifier: Modifier= Modifier
                 Image(
                     painter = painterResource(id = R.drawable.lemon_restart) ,
                     contentDescription = stringResource(id = R.string.emptyGlass),
-                    modifier = Modifier.wrapContentSize()
+                    modifier = Modifier
+                        .wrapContentSize()
                         .clickable {
                             currentStep = 1
                         }
@@ -526,7 +530,7 @@ fun TipTimeLayout() {
         Text(
             text = stringResource(R.string.calculate_tip),
             modifier = Modifier
-                .padding(bottom = 16.dp, top = 40.dp)
+                .padding(bottom = 16.dp , top = 40.dp)
                 .align(alignment = Alignment.Start)
         )
 //        EditNumberField(modifier = Modifier.padding( bottom =32.dp).fillMaxWidth())
@@ -642,6 +646,59 @@ fun RoundTheTipRow(
         )
     }
 }
+
+/**
+ * art space app
+ */
+@Composable
+fun artSpace(modifier: Modifier = Modifier){
+    Column(
+        modifier = Modifier
+            .statusBarsPadding()
+            .padding(horizontal = 40.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Image(painter = painterResource(id = R.drawable.gopr0074)
+            , contentDescription = "pics")
+        Text(
+            text = "title" ,
+            modifier = Modifier
+                .padding(bottom = 16.dp , top = 40.dp)
+                .align(alignment = Alignment.Start)
+        )
+        Text(
+            text = "description" ,
+            modifier = Modifier
+                .padding(bottom = 16.dp , top = 20.dp)
+                .align(alignment = Alignment.Start)
+        )
+        Row (modifier = modifier
+            .fillMaxWidth()
+            .size(48.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ){
+            Button(onClick = {  },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180, green = 100, blue = 100)
+                )
+            ) {
+                Text("previous")
+
+            }
+            Spacer(modifier = Modifier.width(50.dp))
+            Button(onClick = {  },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180, green = 100, blue = 100)
+                )) {
+                Text("next")
+
+            }
+
+        }
+    }
+}
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
@@ -655,7 +712,9 @@ fun GreetingPreview() {
 //        DiceWithButtonAndImage()
 //        Lemonade()
 //        LemonadeApp()
-        TipTimeLayout()
+//        TipTimeLayout()
 //        RoundTheTipRow()
+        artSpace()
+
     }
 }
