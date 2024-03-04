@@ -828,6 +828,80 @@ fun ArtTextAndImage(
     }
 }
 
+/**
+ * Kotlin fundamentals task 1
+ */
+data class Event(
+    val title: String,
+    val description: String?,
+//    val daypart: String,
+    val daypart: DAYPART, //Notice, official solution
+    val duration: Int
+)
+enum class DAYPART{
+    MORNING, AFTERNOON, EVENING
+}
+//val events = listOf(
+val events = mutableListOf(// official solution
+    Event(
+        title = "Study Kotlin",
+        description = "Commit to studying Kotlin at least 15 minutes per day.",
+        daypart = DAYPART.MORNING,
+        duration = 15
+    ),
+    Event(
+        title = "runing",
+        description = "Commit to studying Kotlin at least 15 minutes per day.",
+        daypart = DAYPART.EVENING,
+        duration = 30
+    ),
+    Event(
+        title = "Climbing",
+        description = "Commit to studying Kotlin at least 15 minutes per day.",
+        daypart = DAYPART.AFTERNOON,
+        duration = 72
+    )
+)
+// extention property, new property
+val Event.durationOfEvent: String
+    get() = if(this.duration < 60){
+        "short"
+    } else {
+        "long"
+    }
+
+fun main() {
+    events.forEach {
+        println("Event:${it.toString()}")
+    }
+    // **********filter short event**************
+    val (shortE, longE) = events.partition { it.duration < 60 }
+    println("ShortEvent: $shortE")
+    println("LongEvent: $longE")
+    // official below
+    val shortEvents = events.filter { it.duration < 60 }
+    println("You have ${shortEvents.size} short events.")
+    // ********** groupby daypart **************
+    val groupEvent = events.groupBy { it.daypart }
+    //my wrong
+//    val morningE = groupEvent.get(DAYPART.MORNING)?: emptyList()
+//    val afternoonE = groupEvent[DAYPART.AFTERNOON]?: emptyList()
+//    val evenE = groupEvent[DAYPART.EVENING]?: emptyList()
+//    println("Morning Event: $morningE")
+//    println("Afternoon Event: $afternoonE")
+//    println("Evening Event: $evenE")
+    // official
+    groupEvent.forEach{ (DAYPART,events) ->
+        println("$DAYPART,${events.size} events")
+
+    }
+//***** print last event name
+    println("Last event of the day: ${events.last().title}")
+
+    println("Duration of first event of the day: ${events[0].durationOfEvent}")
+
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
