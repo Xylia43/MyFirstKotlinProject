@@ -26,12 +26,15 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -51,6 +54,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -902,6 +906,64 @@ fun main() {
 
 }
 
+/**
+ * build a scrollable list
+ */
+
+data class Affirmation(
+    @StringRes val stringResourceId: Int,
+    @DrawableRes val imageResourceId: Int
+)
+
+class Datasource() {
+    fun loadAffirmations(): List<Affirmation> {
+        return listOf<Affirmation>(
+            Affirmation(R.string.affirmation1, R.drawable.image1),
+            Affirmation(R.string.affirmation2, R.drawable.image2),
+            Affirmation(R.string.affirmation3, R.drawable.image3),
+            Affirmation(R.string.affirmation4, R.drawable.image4),
+            Affirmation(R.string.affirmation5, R.drawable.image5),
+            Affirmation(R.string.affirmation6, R.drawable.image6),
+            Affirmation(R.string.affirmation7, R.drawable.image7),
+            Affirmation(R.string.affirmation8, R.drawable.image8),
+            Affirmation(R.string.affirmation9, R.drawable.image9),
+            Affirmation(R.string.affirmation10, R.drawable.image10))
+    }
+}
+@Composable
+fun AffirmationList(affirmationList: List<Affirmation>, modifier: Modifier = Modifier) {
+    LazyColumn(modifier = modifier) {
+        items(affirmationList) {
+            //For each affirmation in the list, call the AffirmationCard() composable.
+            // Pass it the affirmation and a Modifier object with the padding attribute set to 8.dp.
+            affirmation -> AffirmationCard(
+            affirmation = affirmation,
+            modifier = Modifier.padding(8.dp)
+        )
+        }
+    }
+}
+
+@Composable
+fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+    Card(modifier = modifier) {
+        Column {
+            Image(
+                painter = painterResource(affirmation.imageResourceId),
+                contentDescription = stringResource(affirmation.stringResourceId),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(194.dp),
+                contentScale = ContentScale.Crop
+            )
+            Text(
+                text = LocalContext.current.getString(affirmation.stringResourceId),
+                modifier = Modifier.padding(16.dp),
+                style = MaterialTheme.typography.headlineSmall
+            )
+        }
+    }
+}
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
@@ -917,7 +979,11 @@ fun GreetingPreview() {
 //        LemonadeApp()
 //        TipTimeLayout()
 //        RoundTheTipRow()
-        ArtSpace()
+//        ArtSpace()
+//        AffirmationCard(Affirmation(R.string.affirmation1, R.drawable.image1))
+        AffirmationList(
+            affirmationList = Datasource().loadAffirmations(),
+        )
 
     }
 }
