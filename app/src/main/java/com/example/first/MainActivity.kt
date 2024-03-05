@@ -27,6 +27,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -974,7 +977,7 @@ data class Topic(
     @DrawableRes val coursePicId: Int,
 
 )
-object DataSource {
+object CourseDataSource {
     val topics = listOf(
         Topic(R.string.architecture, 58, R.drawable.architecture),
         Topic(R.string.crafts, 121, R.drawable.crafts),
@@ -1000,29 +1003,27 @@ fun CourseCard(courseitem: Topic, modifier: Modifier = Modifier) {
                 painter = painterResource(courseitem.coursePicId),
                 contentDescription = stringResource(courseitem.courseNameId),
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(194.dp),
-                contentScale = ContentScale.Crop
+                    .width(68.dp)
+                    .height(68.dp),
+                contentScale = ContentScale.FillBounds
             )
             Column {
                 Text(
                     text = LocalContext.current.getString(courseitem.courseNameId),
-                    modifier = Modifier.padding(16.dp),
-                    style = MaterialTheme.typography.headlineSmall
+                    modifier = Modifier.padding(start = 16.dp, top = 16.dp, end = 16.dp),
+                    style = MaterialTheme.typography.bodyMedium
                 )
-                Row {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Image(
                         painter = painterResource(R.drawable.ic_grain),
                         contentDescription = "",
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(194.dp),
-                        contentScale = ContentScale.Crop
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.padding(start = 16.dp, top = 8.dp)
                     )
                     Text(
-                        text = LocalContext.current.getString(courseitem.courseComNum),
-                        modifier = Modifier.padding(16.dp),
-                        style = MaterialTheme.typography.headlineSmall
+                        text = courseitem.courseComNum.toString(),
+                        modifier = Modifier.padding(start = 8.dp, top = 8.dp, end = 16.dp),
+                        style = MaterialTheme.typography.labelMedium
                     )
                 }
             }
@@ -1030,6 +1031,20 @@ fun CourseCard(courseitem: Topic, modifier: Modifier = Modifier) {
         }
     }
 }
+@Composable
+fun CourseList(couritemList: List<Topic>, modifier: Modifier = Modifier) {
+       LazyVerticalGrid(columns = GridCells.Fixed(2)) {
+        items(couritemList) {
+            //For each affirmation in the list, call the AffirmationCard() composable.
+            // Pass it the affirmation and a Modifier object with the padding attribute set to 8.dp.
+                topicItem -> CourseCard(
+            courseitem = topicItem,
+            modifier = Modifier.padding(8.dp)
+        )
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
@@ -1051,7 +1066,11 @@ fun GreetingPreview() {
 //            affirmationList = Datasource().loadAffirmations(),
 //        )
 
-        CourseCard(Topic(R.string.architecture, 58, R.drawable.architecture))
+//        CourseCard(Topic(R.string.architecture, 58, R.drawable.architecture))
+
+        CourseList(
+            couritemList = CourseDataSource.topics
+        )
 
     }
 }
