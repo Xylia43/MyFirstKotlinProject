@@ -1060,7 +1060,8 @@ fun CourseList(couritemList: List<Topic>, modifier: Modifier = Modifier) {
 fun WoofApp() {
     LazyColumn {
         items(dogs) {
-            DogItem(dog = it)
+            DogItem(dog = it,
+                modifier = Modifier.padding(dimensionResource(R.dimen.padding_small)))
         }
     }
 }
@@ -1076,13 +1077,15 @@ fun DogItem(
     dog: Dog ,
     modifier: Modifier = Modifier
 ) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(dimensionResource(R.dimen.padding_small))
-    ) {
-        DogIcon(dog.imageResourceId)
-        DogInformation(dog.name, dog.age)
+    Card(modifier = modifier) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(dimensionResource(R.dimen.padding_small))
+        ) {
+            DogIcon(dog.imageResourceId)
+            DogInformation(dog.name , dog.age)
+        }
     }
 }
 
@@ -1137,7 +1140,7 @@ fun DogInformation(
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    FirstTheme(darkTheme = false) {
+    FirstTheme(darkTheme = true) {
 //        Greeting("Android")
 //        TaskManger()
 //        MyQuadrant()
