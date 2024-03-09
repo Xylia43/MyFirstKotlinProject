@@ -1057,13 +1057,19 @@ fun CourseList(couritemList: List<Topic>, modifier: Modifier = Modifier) {
  *//**
  * Composable that displays an app bar and a list of dogs.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WoofApp() {
-    LazyColumn {
+    Scaffold(
+        topBar = {
+        WoofTopAppBar()
+    }) { it ->
+    LazyColumn(contentPadding = it) {
         items(dogs) {
             DogItem(dog = it,
                 modifier = Modifier.padding(dimensionResource(R.dimen.padding_small)))
         }
+    }
     }
 }
 
@@ -1132,12 +1138,39 @@ fun DogInformation(
     Column(modifier = modifier) {
         Text(
             text = stringResource(dogName),
+            style = MaterialTheme.typography.displayMedium,
             modifier = Modifier.padding(top = dimensionResource(R.dimen.padding_small))
         )
         Text(
             text = stringResource(R.string.years_old, dogAge),
+            style = MaterialTheme.typography.bodyLarge
         )
     }
+}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun WoofTopAppBar(modifier: Modifier = Modifier) {
+    CenterAlignedTopAppBar(
+        title = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    modifier = Modifier
+                        .size(dimensionResource(id = R.dimen.image_size))
+                        .padding(dimensionResource(id = R.dimen.padding_small)),
+                    painter = painterResource(R.drawable.ic_woof_logo),
+
+                    contentDescription = null
+                )
+                Text(
+                    text = stringResource(R.string.app_name),
+                    style = MaterialTheme.typography.displayLarge
+                )
+            }
+        },
+        modifier = modifier
+    )
 }
 
 @Preview(showBackground = true)
