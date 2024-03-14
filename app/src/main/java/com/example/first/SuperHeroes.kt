@@ -1,6 +1,8 @@
 package com.example.first
 
 import android.content.res.Configuration
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.MutableTransitionState
@@ -48,12 +50,12 @@ import com.example.first.data.SuperHero
 import com.example.first.ui.theme.FirstTheme
 
 
-//class SuperHeroes : AppCompatActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_super_heroes)
-//    }
-//}
+class SuperHeroes : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_super_heroes)
+    }
+}
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun HeroesList(
