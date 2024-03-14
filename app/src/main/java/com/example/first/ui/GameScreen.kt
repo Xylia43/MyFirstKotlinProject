@@ -65,9 +65,10 @@ fun GameScreen(
         )
         GameLayout(
             onUserGuessChanged = { gameViewModel.updateUserGuess(it) },
-            onKeyboardDone = { },
+            onKeyboardDone = { gameViewModel.checkUserGuess() },
             userGuess = gameViewModel.userGuess,
             currentScrambledWord = gameUiState.currentScrambledWord,
+            isGuessWrong = gameUiState.isGuessedWordWrong,
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
@@ -83,7 +84,7 @@ fun GameScreen(
 
             Button(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = { }
+                onClick = { gameViewModel.checkUserGuess() }
             ) {
                 Text(
                     text = stringResource(R.string.submit),
@@ -114,7 +115,7 @@ fun GameStatus(score: Int, modifier: Modifier = Modifier) {
         Text(
             text = stringResource(R.string.score, score),
             style = typography.headlineMedium,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(18.dp)
         )
     }
 }
@@ -125,6 +126,7 @@ fun GameStatus(score: Int, modifier: Modifier = Modifier) {
 fun GameLayout(
     userGuess: String,
     onUserGuessChanged: (String) -> Unit,
+    isGuessWrong: Boolean,
     onKeyboardDone: () -> Unit,
     currentScrambledWord: String,
     modifier: Modifier = Modifier) {
@@ -173,7 +175,13 @@ fun GameLayout(
 //                    disabledContainerColor = colorScheme.surface ,
                 ) ,
                 onValueChange = onUserGuessChanged,
-                label = { Text(stringResource(R.string.enter_your_word)) },
+                label = {
+                    if (isGuessWrong) {
+                        Text(stringResource(R.string.wrong_guess))
+                    } else {
+                        Text(stringResource(R.string.enter_your_word))
+                    }
+                },
                 isError = false,
                 keyboardOptions = KeyboardOptions.Default.copy(
                     imeAction = ImeAction.Done
