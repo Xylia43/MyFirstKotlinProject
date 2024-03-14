@@ -63,7 +63,11 @@ fun GameScreen(
             text = stringResource(R.string.app_name),
             style = typography.titleLarge,
         )
-        GameLayout(currentScrambledWord = gameUiState.currentScrambledWord,
+        GameLayout(
+            onUserGuessChanged = { gameViewModel.updateUserGuess(it) },
+            onKeyboardDone = { },
+            userGuess = gameViewModel.userGuess,
+            currentScrambledWord = gameUiState.currentScrambledWord,
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
@@ -118,8 +122,12 @@ fun GameStatus(score: Int, modifier: Modifier = Modifier) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GameLayout(currentScrambledWord: String,
-               modifier: Modifier = Modifier) {
+fun GameLayout(
+    userGuess: String,
+    onUserGuessChanged: (String) -> Unit,
+    onKeyboardDone: () -> Unit,
+    currentScrambledWord: String,
+    modifier: Modifier = Modifier) {
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
 
     Card(
@@ -153,7 +161,7 @@ fun GameLayout(currentScrambledWord: String,
                 style = typography.titleMedium
             )
             OutlinedTextField(
-                value = "",
+                value = userGuess,
                 singleLine = true,
                 shape = shapes.large,
                 modifier = Modifier.fillMaxWidth(),
@@ -164,14 +172,14 @@ fun GameLayout(currentScrambledWord: String,
 //                    unfocusedContainerColor = colorScheme.surface ,
 //                    disabledContainerColor = colorScheme.surface ,
                 ) ,
-                onValueChange = { },
+                onValueChange = onUserGuessChanged,
                 label = { Text(stringResource(R.string.enter_your_word)) },
                 isError = false,
                 keyboardOptions = KeyboardOptions.Default.copy(
                     imeAction = ImeAction.Done
                 ),
                 keyboardActions = KeyboardActions(
-                    onDone = { }
+                    onDone = { onKeyboardDone() }
                 )
             )
         }

@@ -80,6 +80,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.first.data.Dog
 import com.example.first.data.dogs
+import com.example.first.ui.GameScreen
 import com.example.first.ui.theme.FirstTheme
 import java.text.NumberFormat
 
@@ -104,7 +105,8 @@ class MainActivity : ComponentActivity() {
 //                    CourseList(
 //                        couritemList = CourseDataSource.topics
 //                    )
-                    WoofApp()
+//                    WoofApp()
+                    GameScreen()
                 }
             }
         }
