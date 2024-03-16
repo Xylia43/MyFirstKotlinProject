@@ -13,6 +13,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
 
+/**
+ * ViewModel containing the app data and methods to process the data
+ */
 class GameViewModel : ViewModel() {
     // Game UI state
 //Now _uiState is accessible and editable only within the GameViewModel.
