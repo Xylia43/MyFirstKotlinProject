@@ -3,7 +3,7 @@ package com.example.first.data
 import com.example.first.R
 import com.example.first.model.Dessert
 
-object Datasource {
+object DessertDatasource {
     val dessertList = listOf(
         Dessert(R.drawable.cupcake, 5, 0) ,
         Dessert(R.drawable.donut, 10, 5),
