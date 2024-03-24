@@ -80,7 +80,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.first.data.Dog
 import com.example.first.data.dogs
-import com.example.first.ui.GameScreen
 import com.example.first.ui.theme.FirstTheme
 import java.text.NumberFormat
 
@@ -106,7 +105,9 @@ class MainActivity : ComponentActivity() {
 //                        couritemList = CourseDataSource.topics
 //                    )
 //                    WoofApp()
-                    GameScreen()
+//                    GameScreen()
+//                    CupcakeScreen()
+                    CupcakeApp()
                 }
             }
         }
@@ -1099,9 +1100,12 @@ fun DogItem(
     else MaterialTheme.colorScheme.primaryContainer,)
     Card(modifier = modifier) {
         Column(modifier = Modifier
-            .animateContentSize(animationSpec = spring(
-                dampingRatio = Spring.DampingRatioNoBouncy,
-                stiffness = Spring.StiffnessMedium))
+            .animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioNoBouncy ,
+                    stiffness = Spring.StiffnessMedium
+                )
+            )
             .background(color = color)) {
             Row(
                 modifier = Modifier
