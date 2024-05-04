@@ -1273,7 +1273,8 @@ fun GreetingPreview() {
 //        CourseList(
 //            couritemList = CourseDataSource.topics
 //        )
-        WoofApp()
-
+//        WoofApp()
+// navigation practice
+        LunchTrayApp()
     }
 }
