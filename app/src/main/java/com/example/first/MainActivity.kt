@@ -107,7 +107,8 @@ class MainActivity : ComponentActivity() {
 //                    WoofApp()
 //                    GameScreen()
 //                    CupcakeScreen()
-                    CupcakeApp()
+//                    CupcakeApp()
+                    LunchTrayApp()
                 }
             }
         }
