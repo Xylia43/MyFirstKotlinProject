@@ -74,12 +74,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextAlign.Companion.Justify
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.first.data.Dog
 import com.example.first.data.dogs
+import com.example.first.ui.ReplyApp
 import com.example.first.ui.theme.FirstTheme
 import java.text.NumberFormat
 
@@ -108,7 +110,8 @@ class MainActivity : ComponentActivity() {
 //                    GameScreen()
 //                    CupcakeScreen()
 //                    CupcakeApp()
-                    LunchTrayApp()
+//                    LunchTrayApp()
+                    ReplyApp()
                 }
             }
         }
@@ -126,12 +129,17 @@ fun Greeting(name: String , modifier: Modifier = Modifier) {
             contentScale = ContentScale.FillWidth
         )
         Text(
-            text = "Title" ,
-            modifier = modifier.padding(16.dp) ,
-            fontSize = 24.sp
+            text = "Title iti" ,
+            modifier = Modifier
+                .padding(16.dp)
+                .align(alignment = Alignment.Start)
+                .width(150.dp),
+            fontSize = 24.sp,
+            textAlign = TextAlign.End
+
         )
         Text(
-            text = "first paragraph" ,
+            text = "first paragraph xxxx" ,
             modifier = modifier.padding(16.dp , 0.dp , 16.dp , 0.dp) ,
             textAlign = Justify
         )
@@ -1252,7 +1260,7 @@ fun WoofTopAppBar(modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     FirstTheme(darkTheme = true) {
-//        Greeting("Android")
+        Greeting("Android")
 //        TaskManger()
 //        MyQuadrant()
 //        MyProfileCompose(Modifier,R.drawable.hello,"FULL NAME","Yan")
@@ -1276,6 +1284,9 @@ fun GreetingPreview() {
 //        )
 //        WoofApp()
 // navigation practice
-        LunchTrayApp()
+//        LunchTrayApp()
+//        Surface {
+//            ReplyApp()
+//        }
     }
 }
