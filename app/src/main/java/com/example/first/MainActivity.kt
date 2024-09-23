@@ -45,6 +45,7 @@ import com.example.first.ui.TaskMangerScreen
 import com.example.first.ui.TipTimeLayout
 import com.example.first.ui.Topic
 import com.example.first.ui.WoofApp
+import com.example.first.ui.WordGameScreen
 import com.example.first.ui.theme.FirstTheme
 
 class MainActivity : ComponentActivity() {
@@ -94,7 +95,9 @@ enum class MyAppScreen() {
     AffirmationsApp,
     CourseApp,
     DogApp,
-    LunchTrayApp
+    LunchTrayApp,
+    CupcakeApp,
+    WordGame
 }
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -169,6 +172,12 @@ fun MyApp(
             }
             composable(route = MyAppScreen.LunchTrayApp.name) {
                 LunchTrayApp()
+            }
+            composable(route = MyAppScreen.CupcakeApp.name) {
+                CupcakeApp()
+            }
+            composable(route = MyAppScreen.WordGame.name) {
+                WordGameScreen()
             }
 
         }
@@ -337,6 +346,35 @@ fun MyAppList(modifier: Modifier = Modifier,navController: NavHostController) {
                 Text(stringResource(id = R.string.lunch_tray_app))
 
             }
+
+        }
+        Row (modifier = Modifier
+            .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ){
+            Button(
+                onClick = { // go to a new page
+                    navController.navigate(MyAppScreen.CupcakeApp.name)
+                } ,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180 , green = 100 , blue = 100)
+                )
+            ) {
+                Text(stringResource(id = R.string.cupcake_app))
+
+            }
+            Button(
+                onClick = { // go to a new page
+                    navController.navigate(MyAppScreen.WordGame.name)
+                } ,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180 , green = 100 , blue = 100)
+                )
+            ) {
+                Text(stringResource(id = R.string.scramble_game))
+
+            }
+
 
         }
     }

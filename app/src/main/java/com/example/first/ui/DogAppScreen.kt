@@ -39,9 +39,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.first.R
 import com.example.first.data.Dog
 import com.example.first.data.dogs
+import com.example.first.ui.theme.FirstTheme
 
 /**
  * @className: first
@@ -235,4 +237,12 @@ fun WoofTopAppBar(modifier: Modifier = Modifier) {
         },
         modifier = modifier
     )
+}
+@Preview(showBackground = true)
+@Composable
+fun DogAppPreview() {
+    FirstTheme(darkTheme = true) {
+        WoofApp()
+        
+    }
 }

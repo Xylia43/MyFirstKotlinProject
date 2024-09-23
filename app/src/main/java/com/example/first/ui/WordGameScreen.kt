@@ -45,7 +45,7 @@ import com.example.first.R
 import com.example.first.ui.theme.FirstTheme
 
 @Composable
-fun GameScreen(
+fun WordGameScreen(
     gameViewModel: GameViewModel = viewModel()) {
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
     val gameUiState by gameViewModel.uiState.collectAsState()
@@ -243,6 +243,6 @@ private fun FinalScoreDialog(
 @Composable
 fun GameScreenPreview() {
     FirstTheme {
-        GameScreen()
+        WordGameScreen()
     }
 }

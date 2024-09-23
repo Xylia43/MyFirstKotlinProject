@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -35,6 +36,7 @@ import com.example.first.ui.OrderSummaryScreen
 import com.example.first.ui.OrderViewModel
 import com.example.first.ui.SelectOptionScreen
 import com.example.first.ui.StartOrderScreen
+import com.example.first.ui.theme.FirstTheme
 
 /**
  * Composable that displays the topBar and displays back button if back navigation is possible.
@@ -168,4 +170,11 @@ private fun shareOrder(context: Context , subject: String , summary: String) {
             context.getString(R.string.new_cupcake_order)
         )
     )
+}
+@Preview(showBackground = true)
+@Composable
+fun CupcakePreview() {
+    FirstTheme(darkTheme = true) {
+       CupcakeApp()
+    }
 }

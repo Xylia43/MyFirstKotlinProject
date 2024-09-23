@@ -21,8 +21,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.first.R
+import com.example.first.ui.theme.FirstTheme
 
 /**
  * @className: first
@@ -107,5 +109,16 @@ fun CourseList(couritemList: List<Topic>, modifier: Modifier = Modifier) {
             modifier = Modifier.padding(8.dp)
         )
         }
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun CourseAppPreview() {
+    FirstTheme(darkTheme = true) {
+        CourseCard(Topic(R.string.architecture, 58, R.drawable.architecture))
+
+        CourseList(
+            couritemList = CourseDataSource.topics
+        )
     }
 }
