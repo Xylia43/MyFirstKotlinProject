@@ -19,6 +19,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -41,6 +44,7 @@ import com.example.first.ui.GreetingScreen
 import com.example.first.ui.Lemonade
 import com.example.first.ui.MyBusinessCard
 import com.example.first.ui.MyQuadrantScreen
+import com.example.first.ui.ReplyApp
 import com.example.first.ui.TaskMangerScreen
 import com.example.first.ui.TipTimeLayout
 import com.example.first.ui.Topic
@@ -49,6 +53,7 @@ import com.example.first.ui.WordGameScreen
 import com.example.first.ui.theme.FirstTheme
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -58,7 +63,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize() ,
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyApp()
+                    val windowSize = calculateWindowSizeClass(this)
+                    MyApp(windowSize.widthSizeClass)
 //                    MyAppList()
 //                    Greeting("Android")
 //                    TaskManger()
@@ -97,11 +103,14 @@ enum class MyAppScreen() {
     DogApp,
     LunchTrayApp,
     CupcakeApp,
-    WordGame
+    WordGame,
+    ReplyApp
 }
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MyApp(
+    windowWidthSize: WindowWidthSizeClass ,
 //    viewModel: OrderViewModel = viewModel() ,
     navController: NavHostController = rememberNavController()
 ) {
@@ -178,6 +187,9 @@ fun MyApp(
             }
             composable(route = MyAppScreen.WordGame.name) {
                 WordGameScreen()
+            }
+            composable(route = MyAppScreen.ReplyApp.name) {
+                ReplyApp(windowWidthSize)
             }
 
         }
@@ -374,6 +386,17 @@ fun MyAppList(modifier: Modifier = Modifier,navController: NavHostController) {
                 Text(stringResource(id = R.string.scramble_game))
 
             }
+            Button(
+                onClick = { // go to a new page
+                    navController.navigate(MyAppScreen.ReplyApp.name)
+                } ,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180 , green = 100 , blue = 100)
+                )
+            ) {
+                Text(stringResource(id = R.string.reply_app))
+
+            }
 
 
         }
@@ -464,7 +487,7 @@ fun main() {
 @Composable
 fun GreetingPreview() {
     FirstTheme(darkTheme = true) {
-        MyApp()
+        MyApp(WindowWidthSizeClass.Medium)
 //        MyAppList()
 //        Greeting("Android")
 //        TaskManger()
