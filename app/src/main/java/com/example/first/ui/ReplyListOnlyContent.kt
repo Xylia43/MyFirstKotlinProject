@@ -105,9 +105,11 @@ fun ReplyListAndDetailContent(
         ReplyDetailsScreen(
             replyUiState = replyUiState,
             modifier = Modifier
-                .padding(top = dimensionResource(R.dimen.email_list_item_vertical_spacing))
+//                .padding(top = dimensionResource(R.dimen.email_list_item_vertical_spacing))
+                .padding(end = dimensionResource(R.dimen.email_list_only_horizontal_padding))
                 .weight(1f),
-            onBackPressed = {}
+
+            onBackPressed = {activity.finish()}
         )
     }
 }
