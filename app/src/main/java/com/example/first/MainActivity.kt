@@ -487,7 +487,7 @@ fun main() {
 @Composable
 fun GreetingPreview() {
     FirstTheme(darkTheme = true) {
-        MyApp(WindowWidthSizeClass.Medium)
+        MyApp(WindowWidthSizeClass.Compact)
 //        MyAppList()
 //        Greeting("Android")
 //        TaskManger()

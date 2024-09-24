@@ -1,12 +1,15 @@
 package com.example.first.ui
 
+import androidx.compose.material3.Surface
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.first.data.Email
 import com.example.first.data.MailboxType
+import com.example.first.ui.theme.FirstTheme
 import com.example.first.ui.utils.ReplyNavigationType
 
 @Composable
@@ -48,4 +51,31 @@ fun ReplyApp(
         },
         modifier = modifier
     )
+}
+@Preview(showBackground = true)
+@Composable
+fun ReplyAppPreview() {
+    FirstTheme {
+        Surface {
+            ReplyApp(WindowWidthSizeClass.Compact)
+        }
+    }
+}
+@Preview(showBackground = true, widthDp = 700)
+@Composable
+fun ReplyAppMediumPreview() {
+    FirstTheme {
+        Surface {
+            ReplyApp(WindowWidthSizeClass.Medium)
+        }
+    }
+}
+@Preview(showBackground = true, widthDp = 1000)
+@Composable
+fun ReplyAppExpandedPreview() {
+    FirstTheme {
+        Surface {
+            ReplyApp(WindowWidthSizeClass.Expanded)
+        }
+    }
 }
