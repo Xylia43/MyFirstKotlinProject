@@ -76,6 +76,7 @@ fun ReplyHomeScreen(
         )
     )
     // Modify the Reply app to allow screen changes on state change
+    val navigationDrawerContentDescription = stringResource(R.string.navigation_drawer)
     if (navigationType == ReplyNavigationType.PERMANENT_NAVIGATION_DRAWER) {
         PermanentNavigationDrawer(
             drawerContent = {
@@ -89,6 +90,7 @@ fun ReplyHomeScreen(
                             .fillMaxHeight()
                             .background(MaterialTheme.colorScheme.inverseOnSurface)
                             .padding(dimensionResource(R.dimen.drawer_padding_content))
+                            .testTag(navigationDrawerContentDescription)
                     )
                 }
             }
@@ -177,6 +179,7 @@ private fun ReplyAppContent(
                     navigationItemContentList = navigationItemContentList,
                     modifier = Modifier
                         .fillMaxWidth()
+                        .testTag(bottomNavigationContentDescription)
                 )
             }
         }
@@ -205,7 +208,6 @@ private fun ReplyNavigationRail(
         }
     }
 }
-
 @Composable
 private fun ReplyBottomNavigationBar(
     currentTab: MailboxType,
