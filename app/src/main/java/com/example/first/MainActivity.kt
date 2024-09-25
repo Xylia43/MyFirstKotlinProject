@@ -194,7 +194,7 @@ fun MyApp(
                 ReplyApp(windowWidthSize)
             }
             composable(route = MyAppScreen.SportsApp.name) {
-                SportsApp()
+                SportsApp(windowWidthSize)
             }
 
         }
@@ -508,7 +508,7 @@ fun main() {
 @Composable
 fun GreetingPreview() {
     FirstTheme(darkTheme = true) {
-        MyApp(WindowWidthSizeClass.Compact)
+        MyApp(WindowWidthSizeClass.Expanded)
 //        MyAppList()
 //        Greeting("Android")
 //        TaskManger()

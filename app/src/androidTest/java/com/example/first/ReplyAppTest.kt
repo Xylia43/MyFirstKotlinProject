@@ -3,16 +3,14 @@ package com.example.first
 import androidx.activity.ComponentActivity
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onNodeWithTag
-import com.example.first.ui.ReplyApp
-import org.junit.Rule
-import org.junit.Test
-import com.example.first.R
 import com.example.first.test.TestCompactWidth
 import com.example.first.test.TestExpandedWidth
 import com.example.first.test.TestMediumWidth
+import com.example.first.test.onNodeWithStringId
+import com.example.first.ui.ReplyApp
+import org.junit.Rule
+import org.junit.Test
 
 /**
  * @className: first
@@ -38,8 +36,8 @@ class ReplyAppTest {
             )
         }
         // Bottom navigation is displayed
-        composeTestRule.onNodeWithTagForStringId(
-//        composeTestRule.onNodeWithTag(
+//        composeTestRule.onNodeWithTagForStringId(
+        composeTestRule.onNodeWithStringId(
             R.string.navigation_bottom
         ).assertExists()
     }
@@ -53,7 +51,8 @@ class ReplyAppTest {
             )
         }
         // Navigation rail is displayed
-        composeTestRule.onNodeWithTagForStringId(
+//        composeTestRule.onNodeWithTagForStringId(
+        composeTestRule.onNodeWithStringId(
             R.string.navigation_rail
         ).assertExists()
     }
@@ -67,7 +66,8 @@ class ReplyAppTest {
             )
         }
         // Navigation drawer is displayed
-        composeTestRule.onNodeWithTagForStringId(
+//        composeTestRule.onNodeWithTagForStringId(
+        composeTestRule.onNodeWithStringId(
             R.string.navigation_drawer
         ).assertExists()
     }
