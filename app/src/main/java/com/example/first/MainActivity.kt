@@ -45,6 +45,7 @@ import com.example.first.ui.Lemonade
 import com.example.first.ui.MyBusinessCard
 import com.example.first.ui.MyQuadrantScreen
 import com.example.first.ui.ReplyApp
+import com.example.first.ui.SportsApp
 import com.example.first.ui.TaskMangerScreen
 import com.example.first.ui.TipTimeLayout
 import com.example.first.ui.Topic
@@ -104,7 +105,8 @@ enum class MyAppScreen() {
     LunchTrayApp,
     CupcakeApp,
     WordGame,
-    ReplyApp
+    ReplyApp,
+    SportsApp
 }
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -190,6 +192,9 @@ fun MyApp(
             }
             composable(route = MyAppScreen.ReplyApp.name) {
                 ReplyApp(windowWidthSize)
+            }
+            composable(route = MyAppScreen.SportsApp.name) {
+                SportsApp()
             }
 
         }
@@ -398,6 +403,22 @@ fun MyAppList(modifier: Modifier = Modifier,navController: NavHostController) {
 
             }
 
+        }
+        Row (modifier = Modifier
+            .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Button(
+                onClick = { // go to a new page
+                    navController.navigate(MyAppScreen.SportsApp.name)
+                } ,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180 , green = 100 , blue = 100)
+                )
+            ) {
+                Text(stringResource(id = R.string.sports_app))
+
+            }
 
         }
     }
