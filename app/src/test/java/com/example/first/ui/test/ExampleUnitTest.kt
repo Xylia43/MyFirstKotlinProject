@@ -1,10 +1,10 @@
 package com.example.first.ui.test
 
-import com.example.first.calculateTip
 import com.example.first.data.MAX_NO_OF_WORDS
 import com.example.first.data.SCORE_INCREASE
 import com.example.first.data.getUnscrambledWord
 import com.example.first.ui.GameViewModel
+import com.example.first.ui.calculateTip
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotEquals
