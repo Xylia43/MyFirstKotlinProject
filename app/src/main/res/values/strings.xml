@@ -371,5 +371,15 @@
     <string name="sports_app">Sports App</string>
 
     <!-- sports app end-->
+    <!-- race tracker app start-->
+    <string name="race_tracker_app">Race tracker</string>
+    <string name="run_a_race">Run a race</string>
+    <string name="pause">Pause</string>
+    <string name="start">Start</string>
+    <string name="reset">Reset</string>
+    <string name="progress_percentage">%1$d%%</string>
+    <string name="player_one_name">Player 1</string>
+    <string name="player_two_name">Player 2</string>
+    <!-- race tracker app end-->
 
 </resources>
