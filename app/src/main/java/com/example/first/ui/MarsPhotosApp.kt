@@ -18,7 +18,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.first.R
-import com.example.first.ui.screens.HomeScreen
+import com.example.first.ui.screens.MarsHomeScreen
 import com.example.first.ui.screens.MarsViewModel
 /**
  * @className: first
@@ -40,7 +40,7 @@ fun MarsPhotosApp() {
             modifier = Modifier.fillMaxSize()
         ) {
             val marsViewModel: MarsViewModel = viewModel()
-            HomeScreen(
+            MarsHomeScreen(
                 marsUiState = marsViewModel.marsUiState,
                 contentPadding = it,
             )
