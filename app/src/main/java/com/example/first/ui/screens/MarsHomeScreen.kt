@@ -35,11 +35,9 @@ fun MarsHomeScreen(
     contentPadding: PaddingValues = PaddingValues(0.dp),
 ) {
     when (marsUiState) {
+        is MarsUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
         is MarsUiState.Success -> ResultScreen(
-            marsUiState.photos, modifier = modifier.fillMaxWidth()
-        )
-        is MarsUiState.Success -> ResultScreen(
-            marsUiState.photos, modifier = modifier.fillMaxWidth()
+            marsUiState.photos.toString(), modifier = modifier.fillMaxWidth()
         )
         is MarsUiState.Error -> ErrorScreen( modifier = modifier.fillMaxSize())
     }
@@ -85,5 +83,28 @@ fun ErrorScreen(modifier: Modifier = Modifier) {
             painter = painterResource(id = R.drawable.ic_connection_error), contentDescription = ""
         )
         Text(text = stringResource(R.string.loading_failed), modifier = Modifier.padding(16.dp))
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun LoadingScreenPreview() {
+    FirstTheme {
+        LoadingScreen()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ErrorScreenPreview() {
+    FirstTheme {
+        ErrorScreen()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PhotosGridScreenPreview() {
+    FirstTheme {
+        ResultScreen(stringResource(R.string.mars_photos_app))
     }
 }
