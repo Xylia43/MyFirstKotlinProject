@@ -1,5 +1,6 @@
 package com.example.first.network
 
+import com.example.first.model.Amphibians
 import com.example.first.model.MarsPhoto
 import retrofit2.http.GET
 
@@ -30,4 +31,7 @@ interface MarsApiService {
      */
     @GET("photos")
     suspend fun getPhotos(): List<MarsPhoto>
+
+    @GET("photos")
+    suspend fun getAmphibians(): List<Amphibians>
 }

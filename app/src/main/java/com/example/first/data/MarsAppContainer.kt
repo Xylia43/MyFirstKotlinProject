@@ -15,10 +15,10 @@ import retrofit2.Retrofit
  * @date: 2024/9/27 13:52 Fri
  * @copyright: Copyright (c) 2024 Yxy Inc. All Rights Reserved.
  */
-interface AppContainer {
+interface MarsAppContainer {
     val marsPhotosRepository: MarsPhotosRepository
 }
-class DefaultAppContainer : AppContainer {
+class DefaultAppContainer : MarsAppContainer {
 
     private val baseUrl =
         "https://android-kotlin-fun-mars-server.appspot.com/"

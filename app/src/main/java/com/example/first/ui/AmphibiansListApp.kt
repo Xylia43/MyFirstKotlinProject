@@ -18,8 +18,9 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.first.R
-import com.example.first.ui.screens.MarsHomeScreen
-import com.example.first.ui.screens.MarsViewModel
+import com.example.first.ui.screens.AmphibiansScreen
+import com.example.first.ui.screens.AmphibiansViewModel
+
 /**
  * @className: first
  * @desc:
@@ -29,34 +30,33 @@ import com.example.first.ui.screens.MarsViewModel
  * @date: 2024/9/26 22:20 Thu
  * @copyright: Copyright (c) 2024 Yxy Inc. All Rights Reserved.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MarsPhotosApp() {
+fun AmphibiansListApp() {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = { MarsTopAppBar(scrollBehavior = scrollBehavior) }
+        topBar = { AmphibiansTopAppBar(scrollBehavior = scrollBehavior) }
     ) {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-            val marsViewModel: MarsViewModel = viewModel(factory = MarsViewModel.Factory)
-            MarsHomeScreen(
-                marsUiState = marsViewModel.marsUiState,
+            val amphibiansViewModel: AmphibiansViewModel = viewModel(factory = AmphibiansViewModel.Factory)
+            AmphibiansScreen(
+                amphibiansUiState = amphibiansViewModel.amphibiansUiState,
                 contentPadding = it,
-                retryAction = marsViewModel::getMarsPhotos
+                retryAction = amphibiansViewModel::getAmphibiansList
             )
         }
     }
 }
 
 @Composable
-fun MarsTopAppBar(scrollBehavior: TopAppBarScrollBehavior, modifier: Modifier = Modifier) {
+fun AmphibiansTopAppBar(scrollBehavior: TopAppBarScrollBehavior, modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
         scrollBehavior = scrollBehavior,
         title = {
             Text(
-                text = stringResource(R.string.app_name),
+                text = stringResource(R.string.amphibians_app),
                 style = MaterialTheme.typography.headlineSmall,
             )
         },

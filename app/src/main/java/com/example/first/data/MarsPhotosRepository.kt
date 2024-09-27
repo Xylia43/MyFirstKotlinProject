@@ -1,5 +1,6 @@
 package com.example.first.data
 
+import com.example.first.model.Amphibians
 import com.example.first.model.MarsPhoto
 import com.example.first.network.MarsApiService
 
@@ -15,6 +16,7 @@ import com.example.first.network.MarsApiService
 interface MarsPhotosRepository {
     /** Fetches list of MarsPhoto from marsApi */
     suspend fun getMarsPhotos(): List<MarsPhoto>
+    suspend fun getAmphibiansList(): List<Amphibians>
 }
 
 /**
@@ -25,4 +27,5 @@ class NetworkMarsPhotosRepository(
 ) : MarsPhotosRepository {
     /** Fetches list of MarsPhoto from marsApi*/
     override suspend fun getMarsPhotos(): List<MarsPhoto> = marsApiService.getPhotos()
+    override suspend fun getAmphibiansList(): List<Amphibians> = marsApiService.getAmphibians()
 }
