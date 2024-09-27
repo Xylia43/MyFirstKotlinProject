@@ -1,5 +1,6 @@
-package com.example.first.network
+package com.example.first.model
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -13,5 +14,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class MarsPhoto(
-    val id: String,  val imgSrc: String
+    val id: String,
+    @SerialName(value = "img_src")
+    val imgSrc: String
 )

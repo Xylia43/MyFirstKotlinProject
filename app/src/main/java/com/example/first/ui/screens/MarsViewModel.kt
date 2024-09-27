@@ -10,7 +10,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.first.MarsPhotosApplication
 import com.example.first.data.MarsPhotosRepository
-import com.example.first.network.MarsPhoto
+import com.example.first.model.MarsPhoto
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
@@ -24,12 +24,14 @@ import java.io.IOException
  * @date: 2024/9/26 22:20 Thu
  * @copyright: Copyright (c) 2024 Yxy Inc. All Rights Reserved.
  */
+/**
+ * UI state for the Home screen
+ */
 sealed interface MarsUiState {
     data class Success(val photos: List<MarsPhoto>) : MarsUiState
     object Error : MarsUiState
     object Loading : MarsUiState
 }
-
 class MarsViewModel(private val marsPhotosRepository: MarsPhotosRepository) : ViewModel() {
     /** The mutable State that stores the status of the most recent request */
     var marsUiState: MarsUiState by mutableStateOf(MarsUiState.Loading)
@@ -48,11 +50,11 @@ class MarsViewModel(private val marsPhotosRepository: MarsPhotosRepository) : Vi
      */
     fun getMarsPhotos() {
         viewModelScope.launch {
+            marsUiState = MarsUiState.Loading
             marsUiState = try {
 //                val listResult = MarsApi.retrofitService.getPhotos()
 //                val marsPhotosRepository = NetworkMarsPhotosRepository()
-                val listResult = marsPhotosRepository.getMarsPhotos()
-                MarsUiState.Success(listResult)
+                MarsUiState.Success(marsPhotosRepository.getMarsPhotos())
             } catch (e: IOException) {
                 MarsUiState.Error
             } catch (e: HttpException) {

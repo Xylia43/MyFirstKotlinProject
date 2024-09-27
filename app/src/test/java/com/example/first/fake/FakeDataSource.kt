@@ -1,6 +1,6 @@
 package com.example.first.fake
 
-import com.example.first.network.MarsPhoto
+import com.example.first.model.MarsPhoto
 
 /**
  * @className: first
