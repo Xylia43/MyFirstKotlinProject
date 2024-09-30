@@ -32,6 +32,6 @@ interface MarsApiService {
     @GET("photos")
     suspend fun getPhotos(): List<MarsPhoto>
 
-    @GET("photos")
+    @GET("amphibians")
     suspend fun getAmphibians(): List<Amphibians>
 }

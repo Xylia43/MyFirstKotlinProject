@@ -44,6 +44,7 @@ fun AmphibiansListApp() {
             AmphibiansScreen(
                 amphibiansUiState = amphibiansViewModel.amphibiansUiState,
                 contentPadding = it,
+                modifier = Modifier.fillMaxSize(),
                 retryAction = amphibiansViewModel::getAmphibiansList
             )
         }

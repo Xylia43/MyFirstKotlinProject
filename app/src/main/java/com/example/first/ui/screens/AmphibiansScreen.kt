@@ -8,9 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -21,8 +20,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -88,19 +90,34 @@ fun AmphibiansPhotoCard(photo: Amphibians , modifier: Modifier = Modifier) {
         shape = MaterialTheme.shapes.medium,
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
-        Text(text = photo.name + "("+photo.type + ")")
-        AsyncImage(
-            model = ImageRequest.Builder(context = LocalContext.current)
-                .data(photo.imgSrc)
-                .crossfade(true)
-                .build(),
-            error = painterResource(R.drawable.ic_broken_image),
-            placeholder = painterResource(R.drawable.loading_img),
-            contentDescription = stringResource(R.string.mars_photo),
-            modifier = Modifier.fillMaxWidth(),
-            contentScale = ContentScale.Crop
-        )
-        Text(text = photo.description)
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                text = stringResource(R.string.amphibians_app , photo.name , photo.type) ,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(dimensionResource(R.dimen.padding_medium)) ,
+                style = MaterialTheme.typography.titleLarge ,
+                fontWeight = FontWeight.Bold ,
+                textAlign = TextAlign.Start
+            )
+            AsyncImage(
+                model = ImageRequest.Builder(context = LocalContext.current)
+                    .data(photo.imgSrc)
+                    .crossfade(true)
+                    .build() ,
+                error = painterResource(R.drawable.ic_broken_image) ,
+                placeholder = painterResource(R.drawable.loading_img) ,
+                contentDescription = stringResource(R.string.mars_photo) ,
+                modifier = Modifier.fillMaxWidth() ,
+                contentScale = ContentScale.Crop
+            )
+            Text(
+                text = photo.description,
+                style = MaterialTheme.typography.titleMedium,
+                textAlign = TextAlign.Justify,
+                modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium))
+            )
+        }
     }
 
 }
@@ -110,9 +127,9 @@ fun PhotosGridScreen(
     modifier: Modifier = Modifier ,
     contentPadding: PaddingValues = PaddingValues(0.dp) ,
 ) {
-    LazyVerticalGrid(
-        columns = GridCells.Adaptive(300.dp),
-        modifier = modifier.padding(horizontal = 4.dp),
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(24.dp),
+        modifier = modifier,
         contentPadding = contentPadding,
     ) {
         items(items = photos, key = { photo -> photo.name }) { photo ->
