@@ -112,7 +112,8 @@ enum class MyAppScreen() {
     SportsApp,
     RaceTrackApp,
     MarsPhotosApp,
-    AmphibiansApp
+    AmphibiansApp,
+    InventoryApp
 }
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -210,6 +211,9 @@ fun MyApp(
             }
             composable(route = MyAppScreen.AmphibiansApp.name) {
                 AmphibiansListApp()
+            }
+            composable(route = MyAppScreen.InventoryApp.name) {
+                InventoryApp()
             }
 
         }
@@ -471,6 +475,17 @@ fun MyAppList(modifier: Modifier = Modifier,navController: NavHostController) {
                 )
             ) {
                 Text(stringResource(id = R.string.amphibians_app))
+
+            }
+            Button(
+                onClick = { // go to a new page
+                    navController.navigate(MyAppScreen.InventoryApp.name)
+                } ,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180 , green = 100 , blue = 100)
+                )
+            ) {
+                Text(stringResource(id = R.string.inventory_app))
 
             }
 
