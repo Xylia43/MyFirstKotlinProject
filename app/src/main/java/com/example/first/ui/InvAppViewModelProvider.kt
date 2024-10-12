@@ -24,7 +24,7 @@ import com.example.first.ui.screens.InvHomeViewModel
 /**
  * Provides Factory to create instance of ViewModel for the entire Inventory app
  */
-object AppViewModelProvider {
+object InvAppViewModelProvider {
     val Factory = viewModelFactory {
         // Initializer for ItemEditViewModel
         initializer {
@@ -34,7 +34,7 @@ object AppViewModelProvider {
         }
         // Initializer for ItemEntryViewModel
         initializer {
-            InvItemEntryViewModel()
+            InvItemEntryViewModel(inventoryApplication().container.itemsRepository)
         }
 
         // Initializer for ItemDetailsViewModel

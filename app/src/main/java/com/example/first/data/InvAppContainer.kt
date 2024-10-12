@@ -22,6 +22,6 @@ class AppDataContainer(private val context: Context) : InvAppContainer {
      * Implementation for [ItemsRepository]
      */
     override val itemsRepository: InvItemsRepository by lazy {
-        OfflineItemsRepository()
+        OfflineItemsRepository(InventoryDatabase.getDatabase(context).itemDao())
     }
 }

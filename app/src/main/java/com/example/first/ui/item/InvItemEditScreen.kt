@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.first.InventoryTopAppBar
 import com.example.first.R
-import com.example.first.ui.AppViewModelProvider
+import com.example.first.ui.InvAppViewModelProvider
 import com.example.first.ui.navigation.NavigationDestination
 import com.example.first.ui.theme.FirstTheme
 
@@ -41,7 +41,7 @@ fun ItemEditScreen(
     navigateBack: () -> Unit,
     onNavigateUp: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: InvItemEditViewModel = viewModel(factory = AppViewModelProvider.Factory)
+    viewModel: InvItemEditViewModel = viewModel(factory = InvAppViewModelProvider.Factory)
 ) {
     Scaffold(
         topBar = {

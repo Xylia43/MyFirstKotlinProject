@@ -1,5 +1,8 @@
 package com.example.first.data
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  * @className: first
  * @desc: Entity data class represents a single row in the database.
@@ -12,7 +15,9 @@ package com.example.first.data
 /**
  * Entity data class represents a single row in the database.
  */
+@Entity(tableName = "items")
 class InventoryItem(
+    @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val name: String,
     val price: Double,

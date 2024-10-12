@@ -14,13 +14,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.example.first.data.InvItemsRepository
 import com.example.first.data.InventoryItem
 import java.text.NumberFormat
 
 /**
  * ViewModel to validate and insert items in the Room database.
  */
-class InvItemEntryViewModel : ViewModel() {
+class InvItemEntryViewModel(private val itemsRepository: InvItemsRepository) : ViewModel() {
+    suspend fun saveItem() {
+        if (validateInput()) {
+            itemsRepository.insertItem(itemUiState.itemDetails.toItem())
+        }
+    }
 
     /**
      * Holds current item ui state
