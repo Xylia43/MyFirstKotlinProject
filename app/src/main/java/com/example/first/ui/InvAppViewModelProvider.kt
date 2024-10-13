@@ -6,7 +6,7 @@ import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.example.first.InventoryApplication
+import com.example.first.MarsPhotosApplication
 import com.example.first.ui.item.InvItemDetailsViewModel
 import com.example.first.ui.item.InvItemEditViewModel
 import com.example.first.ui.item.InvItemEntryViewModel
@@ -29,24 +29,26 @@ object InvAppViewModelProvider {
         // Initializer for ItemEditViewModel
         initializer {
             InvItemEditViewModel(
-                this.createSavedStateHandle()
+                this.createSavedStateHandle(),
+                inventoryApplication().invContainer.itemsRepository
             )
         }
         // Initializer for ItemEntryViewModel
         initializer {
-            InvItemEntryViewModel(inventoryApplication().container.itemsRepository)
+            InvItemEntryViewModel(inventoryApplication().invContainer.itemsRepository)
         }
 
         // Initializer for ItemDetailsViewModel
         initializer {
             InvItemDetailsViewModel(
-                this.createSavedStateHandle()
+                this.createSavedStateHandle(),
+                inventoryApplication().invContainer.itemsRepository
             )
         }
 
         // Initializer for HomeViewModel
         initializer {
-            InvHomeViewModel()
+            InvHomeViewModel(inventoryApplication().invContainer.itemsRepository)
         }
     }
 }
@@ -55,5 +57,5 @@ object InvAppViewModelProvider {
  * Extension function to queries for [Application] object and returns an instance of
  * [InventoryApplication].
  */
-fun CreationExtras.inventoryApplication(): InventoryApplication =
-    (this[AndroidViewModelFactory.APPLICATION_KEY] as InventoryApplication)
+fun CreationExtras.inventoryApplication(): MarsPhotosApplication =
+    (this[AndroidViewModelFactory.APPLICATION_KEY] as MarsPhotosApplication)

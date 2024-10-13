@@ -3,7 +3,9 @@ package com.example.first
 import android.app.Application
 import com.example.first.data.AmphAppContainer
 import com.example.first.data.AmphibiansAppContainer
+import com.example.first.data.AppDataContainer
 import com.example.first.data.DefaultAppContainer
+import com.example.first.data.InvAppContainer
 import com.example.first.data.MarsAppContainer
 
 /**
@@ -16,11 +18,17 @@ import com.example.first.data.MarsAppContainer
  * @copyright: Copyright (c) 2024 Yxy Inc. All Rights Reserved.
  */
 class MarsPhotosApplication : Application()  {
-    lateinit var container: MarsAppContainer
+    lateinit var marsContainer: MarsAppContainer
     lateinit var amphContainer: AmphibiansAppContainer
+    /**
+     * AppContainer instance used by the rest of classes to obtain dependencies
+     */
+    lateinit var invContainer: InvAppContainer
+
     override fun onCreate() {
         super.onCreate()
-        container = DefaultAppContainer()
+        marsContainer = DefaultAppContainer()
         amphContainer = AmphAppContainer()
+        invContainer = AppDataContainer(this)
     }
 }

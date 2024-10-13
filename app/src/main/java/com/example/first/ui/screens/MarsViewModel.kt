@@ -66,7 +66,7 @@ class MarsViewModel(private val marsPhotosRepository: MarsPhotosRepository) : Vi
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val application = (this[APPLICATION_KEY] as MarsPhotosApplication)
-                val marsPhotosRepository = application.container.marsPhotosRepository
+                val marsPhotosRepository = application.marsContainer.marsPhotosRepository
                 MarsViewModel(marsPhotosRepository = marsPhotosRepository)
             }
         }

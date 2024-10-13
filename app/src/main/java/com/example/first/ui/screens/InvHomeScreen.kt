@@ -22,6 +22,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -30,9 +32,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.first.InventoryTopAppBar
 import com.example.first.R
 import com.example.first.data.InventoryItem
+import com.example.first.ui.InvAppViewModelProvider
 import com.example.first.ui.item.formatedPrice
 import com.example.first.ui.navigation.NavigationDestination
 import com.example.first.ui.theme.FirstTheme
@@ -66,7 +70,6 @@ object HomeDestination : NavigationDestination {
     override val route = "home"
     override val titleRes = R.string.app_name
 }
-
 /**
  * Entry route for Home screen
  */
@@ -75,7 +78,8 @@ object HomeDestination : NavigationDestination {
 fun HomeScreen(
     navigateToItemEntry: () -> Unit,
     navigateToItemUpdate: (Int) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: InvHomeViewModel = viewModel(factory = InvAppViewModelProvider.Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
@@ -101,8 +105,10 @@ fun HomeScreen(
             }
         },
     ) { innerPadding ->
+        // Display List header and List of Items
+        val homeUiState by viewModel.homeUiState.collectAsState()
         HomeBody(
-            itemList = listOf(),
+            itemList = homeUiState.itemList,// Empty list is being passed in for itemList
             onItemClick = navigateToItemUpdate,
             modifier = modifier.fillMaxSize(),
             contentPadding = innerPadding,

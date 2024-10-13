@@ -16,7 +16,7 @@ import androidx.room.PrimaryKey
  * Entity data class represents a single row in the database.
  */
 @Entity(tableName = "items")
-class InventoryItem(
+data class InventoryItem(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val name: String,
