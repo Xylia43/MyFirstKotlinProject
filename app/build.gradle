@@ -63,6 +63,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.activity:activity:1.8.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-compose-android:2.8.6'
     testImplementation 'junit:junit:4.13.2'
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -100,4 +101,6 @@ dependencies {
     ksp("androidx.room:room-compiler:${rootProject.ext["room_version"]}")
     implementation("androidx.room:room-ktx:${rootProject.ext["room_version"]}")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+    // WorkManager dependency
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
 }

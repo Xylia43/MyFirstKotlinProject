@@ -8,6 +8,8 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.example.first.data.AmphAppContainer
 import com.example.first.data.AmphibiansAppContainer
 import com.example.first.data.AppDataContainer
+import com.example.first.data.BlurAppContainer
+import com.example.first.data.BlurDefaultAppContainer
 import com.example.first.data.BusCcheduleContainer
 import com.example.first.data.DefaultAppContainer
 import com.example.first.data.InvAppContainer
@@ -36,7 +38,7 @@ class MarsPhotosApplication : Application()  {
      * datastore app
      */
     lateinit var userPreferencesRepository: UserPreferencesRepository
-
+    lateinit var blurContainer: BlurAppContainer
     override fun onCreate() {
         super.onCreate()
         marsContainer = DefaultAppContainer()
@@ -44,6 +46,7 @@ class MarsPhotosApplication : Application()  {
         invContainer = AppDataContainer(this)
         busContainer = BusCcheduleContainer(this)
         userPreferencesRepository = UserPreferencesRepository(dataStore)
+        blurContainer = BlurDefaultAppContainer(this)
     }
 }
 private const val LAYOUT_PREFERENCE_NAME = "layout_preferences"
