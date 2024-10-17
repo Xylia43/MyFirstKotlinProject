@@ -3,6 +3,9 @@ package com.example.first
 
 
 import android.annotation.SuppressLint
+import android.content.ContentResolver
+import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -37,6 +40,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.first.ui.AffirmationsApp
 import com.example.first.ui.AmphibiansListApp
 import com.example.first.ui.ArtSpace
+import com.example.first.ui.BluromaticScreen
 import com.example.first.ui.BusScheduleApp
 import com.example.first.ui.CourseCard
 import com.example.first.ui.CourseDataSource
@@ -117,7 +121,8 @@ enum class MyAppScreen() {
     AmphibiansApp,
     InventoryApp,
     BusScheduleApp,
-    DatastoreApp
+    DatastoreApp,
+    WmBlurImageApp
 }
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -225,7 +230,9 @@ fun MyApp(
             composable(route = MyAppScreen.DatastoreApp.name) {
                 DessertReleaseApp()
             }
-
+            composable(route = MyAppScreen.WmBlurImageApp.name) {
+                BluromaticScreen()
+            }
         }
 
     }
@@ -526,13 +533,33 @@ fun MyAppList(modifier: Modifier = Modifier,navController: NavHostController) {
                 Text(stringResource(id = R.string.datastore_app))
 
             }
+            Button(
+                onClick = { // go to a new page
+                    navController.navigate(MyAppScreen.WmBlurImageApp.name)
+                } ,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180 , green = 100 , blue = 100)
+                )
+            ) {
+                Text(stringResource(id = R.string.blur_image))
+
+            }
 
 
         }
     }
 }
 
+fun Context.getImageUri(): Uri {
+    val resources = this.resources
 
+    return Uri.Builder()
+        .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
+        .authority(resources.getResourcePackageName(R.drawable.hello))
+        .appendPath(resources.getResourceTypeName(R.drawable.hello))
+        .appendPath(resources.getResourceEntryName(R.drawable.hello))
+        .build()
+}
 ///////////////////////
 /**
  * Kotlin fundamentals task 1

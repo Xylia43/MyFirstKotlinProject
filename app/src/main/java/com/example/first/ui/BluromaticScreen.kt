@@ -99,7 +99,7 @@ fun BluromaticScreenContent(
     val context = LocalContext.current
     Column(modifier = modifier) {
         Image(
-            painter = painterResource(R.drawable.cupcake),
+            painter = painterResource(R.drawable.hello),
             contentDescription = stringResource(R.string.description_image),
             modifier = Modifier
                 .fillMaxWidth()
