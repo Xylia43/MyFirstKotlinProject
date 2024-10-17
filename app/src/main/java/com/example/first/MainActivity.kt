@@ -37,6 +37,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.first.ui.AffirmationsApp
 import com.example.first.ui.AmphibiansListApp
 import com.example.first.ui.ArtSpace
+import com.example.first.ui.BusScheduleApp
 import com.example.first.ui.CourseCard
 import com.example.first.ui.CourseDataSource
 import com.example.first.ui.CourseList
@@ -113,7 +114,8 @@ enum class MyAppScreen() {
     RaceTrackApp,
     MarsPhotosApp,
     AmphibiansApp,
-    InventoryApp
+    InventoryApp,
+    BusScheduleApp
 }
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -214,6 +216,9 @@ fun MyApp(
             }
             composable(route = MyAppScreen.InventoryApp.name) {
                 InventoryApp()
+            }
+            composable(route = MyAppScreen.BusScheduleApp.name) {
+                BusScheduleApp()
             }
 
         }
@@ -486,6 +491,17 @@ fun MyAppList(modifier: Modifier = Modifier,navController: NavHostController) {
                 )
             ) {
                 Text(stringResource(id = R.string.inventory_app))
+
+            }
+            Button(
+                onClick = { // go to a new page
+                    navController.navigate(MyAppScreen.BusScheduleApp.name)
+                } ,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180 , green = 100 , blue = 100)
+                )
+            ) {
+                Text(stringResource(id = R.string.full_schedule))
 
             }
 

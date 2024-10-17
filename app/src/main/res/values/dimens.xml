@@ -74,4 +74,6 @@
     <dimen name="progress_indicator_height">16dp</dimen>
     <dimen name="progress_indicator_corner_radius">4dp</dimen>
 
+    <dimen name="font_large">20sp</dimen>
+
 </resources>

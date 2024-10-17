@@ -409,4 +409,10 @@
     <string name="yes">Yes</string>
     <string name="required_fields">*required fields</string>
     <string name="inventory_app">Inventory</string>
+    <!-- Bus schedule app -->
+    <string name="full_schedule">Bus Schedule</string>
+    <string name="back">Back</string>
+    <string name="stop_name">Stop Name</string>
+    <string name="route_stop_name">Stop</string>
+    <string name="arrival_time">Arrival Time</string>
 </resources>
