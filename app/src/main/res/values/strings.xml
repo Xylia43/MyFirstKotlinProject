@@ -415,4 +415,9 @@
     <string name="stop_name">Stop Name</string>
     <string name="route_stop_name">Stop</string>
     <string name="arrival_time">Arrival Time</string>
+    <!-- Save preferences locally with DataStore -->
+    <string name="top_bar_name">Android Dessert Release</string>
+    <string name="grid_layout_toggle">Grid layout</string>
+    <string name="linear_layout_toggle">Linear layout</string>
+    <string name="datastore_app">Datastore</string>
 </resources>

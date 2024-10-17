@@ -41,6 +41,7 @@ import com.example.first.ui.BusScheduleApp
 import com.example.first.ui.CourseCard
 import com.example.first.ui.CourseDataSource
 import com.example.first.ui.CourseList
+import com.example.first.ui.DessertReleaseApp
 import com.example.first.ui.DiceWithButtonAndImage
 import com.example.first.ui.GreetingScreen
 import com.example.first.ui.Lemonade
@@ -115,7 +116,8 @@ enum class MyAppScreen() {
     MarsPhotosApp,
     AmphibiansApp,
     InventoryApp,
-    BusScheduleApp
+    BusScheduleApp,
+    DatastoreApp
 }
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -219,6 +221,9 @@ fun MyApp(
             }
             composable(route = MyAppScreen.BusScheduleApp.name) {
                 BusScheduleApp()
+            }
+            composable(route = MyAppScreen.DatastoreApp.name) {
+                DessertReleaseApp()
             }
 
         }
@@ -504,6 +509,24 @@ fun MyAppList(modifier: Modifier = Modifier,navController: NavHostController) {
                 Text(stringResource(id = R.string.full_schedule))
 
             }
+
+        }
+        Row (modifier = Modifier
+            .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Button(
+                onClick = { // go to a new page
+                    navController.navigate(MyAppScreen.DatastoreApp.name)
+                } ,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180 , green = 100 , blue = 100)
+                )
+            ) {
+                Text(stringResource(id = R.string.datastore_app))
+
+            }
+
 
         }
     }
