@@ -3,6 +3,8 @@ package com.example.first
 
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,6 +28,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -72,7 +75,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val windowSize = calculateWindowSizeClass(this)
-                    MyApp(windowSize.widthSizeClass)
+                    MyApp(windowSize.widthSizeClass, context = this)
 //                    MyAppList()
 //                    Greeting("Android")
 //                    TaskManger()
@@ -121,7 +124,8 @@ enum class MyAppScreen() {
     BusScheduleApp,
     DatastoreApp,
     WmBlurImageApp,
-    WaterMeApp
+    WaterMeApp,
+    JuiceTrackerApp
 }
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -129,7 +133,8 @@ enum class MyAppScreen() {
 fun MyApp(
     windowWidthSize: WindowWidthSizeClass ,
 //    viewModel: OrderViewModel = viewModel() ,
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    context: Context
 ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = MyAppScreen.valueOf(
@@ -234,6 +239,10 @@ fun MyApp(
             }
             composable(route = MyAppScreen.WaterMeApp.name) {
                 WaterMeApp()
+            }
+            composable(route = MyAppScreen.JuiceTrackerApp.name) {
+                val changePage = Intent(context, JuiceActivity::class.java)
+                context.startActivity(changePage)
             }
         }
 
@@ -560,6 +569,25 @@ fun MyAppList(modifier: Modifier = Modifier,navController: NavHostController) {
 
 
         }
+        Row (modifier = Modifier
+            .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Button(
+                onClick = { // go to a new page
+                    navController.navigate(MyAppScreen.JuiceTrackerApp.name)
+                } ,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180 , green = 100 , blue = 100)
+                )
+            ) {
+                Text(stringResource(id = R.string.juice_app_name))
+
+            }
+
+
+
+        }
     }
 }
 
@@ -646,7 +674,7 @@ fun main() {
 @Composable
 fun GreetingPreview() {
     FirstTheme(darkTheme = true) {
-        MyApp(WindowWidthSizeClass.Expanded)
+        MyApp(WindowWidthSizeClass.Expanded, context = LocalContext.current)
 //        MyAppList()
 //        Greeting("Android")
 //        TaskManger()

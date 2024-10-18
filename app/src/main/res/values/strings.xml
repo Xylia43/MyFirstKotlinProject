@@ -3,6 +3,10 @@
         <item quantity="one">%d cupcake</item>
         <item quantity="other">%d cupcakes</item>
     </plurals>
+    <plurals name="player_count_caption">
+        <item quantity="one">1 Player</item>
+        <item quantity="other">%1$d Players</item>
+    </plurals>
     <string name="app_name">first</string>
     <string name="first_title">Text composable</string>
     <string name="second_title">Image composable</string>
@@ -19,20 +23,20 @@
     <string name="tap2Restart">Tap the empty glass to start again</string>
     <string name="lemonTree">Lemon tree</string>
     <string name="lemon">Lemon</string>
-    <string name="glassOfLemonade">Glass of lemonade</string>
 
     <!-- TIP APP -->
+    <string name="glassOfLemonade">Glass of lemonade</string>
     <string name="emptyGlass">Empty glass</string>
     <string name="calculate_tip">Calculate Tip</string>
     <string name="bill_amount">Bill Amount</string>
     <string name="tip_amount">Tip Amount: %s</string>
-    <string name="how_was_the_service">Tip Percentage</string>
     <!-- art space -->
+    <string name="how_was_the_service">Tip Percentage</string>
     <string name="round_up_tip">Round up tip?</string>
     <string name="pic_title">Title</string>
     <string name="pic_des">Desctipion</string>
-    <string name="pic_previous">Previous</string>
     <!-- scrollable list -->
+    <string name="pic_previous">Previous</string>
     <string name="pic_next">Next</string>
     <string name="affirmation1">I am strong.</string>
     <string name="affirmation2">I believe in myself.</string>
@@ -42,8 +46,8 @@
     <string name="affirmation6">Good things are always coming into my life.</string>
     <string name="affirmation7">New opportunities await me at every turn.</string>
     <string name="affirmation8">I have the courage to follow my heart.</string>
-    <string name="affirmation9">Things will unfold at precisely the right time.</string>
     <!-- course app -->
+    <string name="affirmation9">Things will unfold at precisely the right time.</string>
     <string name="affirmation10">I will be present in all the moments that this day brings.</string>
     <string name="architecture">Architecture</string>
     <string name="crafts">Crafts</string>
@@ -57,8 +61,8 @@
     <string name="lifestyle">Lifestyle</string>
     <string name="music">Music</string>
     <string name="painting">Painting</string>
-    <string name="photography">Photography</string>
     <!-- dog app -->
+    <string name="photography">Photography</string>
     <string name="tech">Tech</string>
     <string name="dog_name_1">Koda</string>
     <string name="dog_name_2">Lola</string>
@@ -79,9 +83,9 @@
     <string name="dog_description_8">Sunbathing</string>
     <string name="dog_description_9">Sleeping in dangerous places</string>
     <string name="about">About:</string>
-    <string name="years_old">%d years old</string>
     <!-- superHeros app -->
     <!--        <string name="app_name">Superheroes</string>-->
+    <string name="years_old">%d years old</string>
     <string name="expand_button_content_description">See more or less information about a dog.</string>
     <string name="hero1">Nick the Night and Day</string>
     <string name="description1">The Jetpack Hero</string>
@@ -93,14 +97,14 @@
     <string name="description4">Harnesses the power of canary to develop bravely</string>
     <string name="hero5">Magnificent Maru</string>
     <string name="description5">Effortlessly glides in to save the day</string>
-    <string name="hero6">Dynamic Yasmine</string>
     <!-- dessert app -->
+    <string name="hero6">Dynamic Yasmine</string>
     <string name="description6">Ability to shift to any form and energize</string>
     <string name="dessert_sold">Desserts sold</string>
     <string name="total_revenue">Total Revenue</string>
     <string name="share">Share</string>
-    <string name="share_text">I\'ve clicked %1$d Desserts for a total of $%2$d #AndroidDessertClicker</string>
     <!-- game app -->
+    <string name="share_text">I\'ve clicked %1$d Desserts for a total of $%2$d #AndroidDessertClicker</string>
     <string name="sharing_not_available">Sharing Not Available</string>
     <string name="instructions">Unscramble the word using all the letters.</string>
     <string name="skip">Skip</string>
@@ -111,8 +115,8 @@
     <string name="congratulations">Congratulations!</string>
     <string name="you_scored">"You scored: %d"</string>
     <string name="exit">Exit</string>
-    <string name="play_again">Play Again</string>
     <!-- cupcake app -->
+    <string name="play_again">Play Again</string>
     <string name="wrong_guess">Wrong Guess!</string>
     <string name="order_cupcakes">Order Cupcakes</string>
     <string name="one_cupcake">One Cupcake</string>
@@ -146,8 +150,8 @@
     <string name="start_order">Start Order</string>
     <string name="subtotal">Subtotal: %s</string>
     <string name="tax">Tax: %s</string>
-    <string name="total">Total: %s</string>
     <!-- reply app -->
+    <string name="total">Total: %s</string>
     <string name="navigation_drawer">Navigation Drawer</string>
     <string name="navigation_rail">Navigation Rail</string>
     <string name="navigation_bottom">Navigation Bottom</string>
@@ -157,55 +161,55 @@
     <string name="tab_sent">Sent</string>
     <string name="tab_drafts">Drafts</string>
     <string name="tab_spam">Spam</string>
-    <string name="logo">Logo</string>
 
+    <string name="logo">Logo</string>
     <string name="profile">Profile</string>
     <string name="reply">Reply</string>
     <string name="reply_all">Reply All</string>
     <string name="continue_composing">Continue Composing</string>
     <string name="delete">Delete</string>
-    <string name="move_to_inbox">Move to Inbox</string>
 
+    <string name="move_to_inbox">Move to Inbox</string>
     <string name="account_4_first_name">Tracy</string>
     <string name="account_4_last_name">Alvarez</string>
-    <string name="account_4_email">tracealvie@altostrat.com</string>
 
+    <string name="account_4_email">tracealvie@altostrat.com</string>
     <string name="account_5_first_name">Allison</string>
     <string name="account_5_last_name">Trabucco</string>
-    <string name="account_5_email">atrabucco222@altostrat.com</string>
 
+    <string name="account_5_email">atrabucco222@altostrat.com</string>
     <string name="account_6_first_name">Ali</string>
     <string name="account_6_last_name">Connors</string>
-    <string name="account_6_email">aliconnors@altostrat.com</string>
 
+    <string name="account_6_email">aliconnors@altostrat.com</string>
     <string name="account_7_first_name">Alberto</string>
     <string name="account_7_last_name">Williams</string>
-    <string name="account_7_email">albertowilliams124@altostrat.com</string>
 
+    <string name="account_7_email">albertowilliams124@altostrat.com</string>
     <string name="account_8_first_name">Kim</string>
     <string name="account_8_last_name">Alen</string>
-    <string name="account_8_email">alen13@altostrat.com</string>
 
+    <string name="account_8_email">alen13@altostrat.com</string>
     <string name="account_9_first_name">Google</string>
     <string name="account_9_last_name">Express</string>
-    <string name="account_9_email">express@altostrat.com</string>
 
+    <string name="account_9_email">express@altostrat.com</string>
     <string name="account_10_first_name">Sandra</string>
     <string name="account_10_last_name">Adams</string>
-    <string name="account_10_email">sandraadams@altostrat.com</string>
 
+    <string name="account_10_email">sandraadams@altostrat.com</string>
     <string name="account_11_first_name">Trevor</string>
     <string name="account_11_last_name">Hansen</string>
-    <string name="account_11_email">trevorhandsen@altostrat.com</string>
 
+    <string name="account_11_email">trevorhandsen@altostrat.com</string>
     <string name="account_12_first_name">Sean</string>
     <string name="account_12_last_name">Holt</string>
-    <string name="account_12_email">sholt@altostrat.com</string>
 
+    <string name="account_12_email">sholt@altostrat.com</string>
     <string name="account_13_first_name">Frank</string>
     <string name="account_13_last_name">Hawkins</string>
-    <string name="account_13_email">fhawkank@altostrat.com</string>
 
+    <string name="account_13_email">fhawkank@altostrat.com</string>
     <string name="email_0_subject">Package shipped!</string>
     <string name="email_0_body">
         Cucumber Mask Facial has shipped.\n\nKeep an eye out for a package to arrive between this
@@ -213,8 +217,8 @@
         of next week, please reach out to us for details on your shipment.\n\nAs always, thank you
         for shopping with us and we hope you love our specially formulated Cucumber Mask!
     </string>
-    <string name="email_0_time">20 mins ago</string>
 
+    <string name="email_0_time">20 mins ago</string>
     <string name="email_1_subject">Brunch this weekend?</string>
     <string name="email_1_body">
         I\'ll be in your neighborhood doing errands and was hoping to catch you for a coffee this
@@ -223,14 +227,14 @@
         She stopped over at the house to say hey to the kids and told me all about her trip to
         Mexico.\n\nTalk to you soon,\nAli
     </string>
-    <string name="email_1_time">40 mins ago</string>
 
+    <string name="email_1_time">40 mins ago</string>
     <string name="email_2_subject">Bonjour from Paris</string>
     <string name="email_2_body">
         Here are some great shots from my trip...
     </string>
-    <string name="email_2_time">1 hour ago</string>
 
+    <string name="email_2_time">1 hour ago</string>
     <string name="email_3_subject">High school reunion?</string>
     <string name="email_3_body">
         Hi friends,\n\nI was at the grocery store on Sunday night.. when I ran into Genie Williams!
@@ -240,8 +244,8 @@
         of missing alums.\n\nIf you can make it, we\'re doing a little phone-tree party at her place
         next Saturday, hoping that if we can find one person, thee more will...
     </string>
-    <string name="email_3_time">2 hours ago</string>
 
+    <string name="email_3_time">2 hours ago</string>
     <string name="email_4_subject">Brazil trip</string>
     <string name="email_4_body">
         Thought we might be able to go over some details about our upcoming vacation.\n\nI\'ve been
@@ -255,25 +259,25 @@
         have ideas or places in mind, lets jot some ideas down!\n\nMaybe we can jump on the phone
         later today if you have a second.
     </string>
-    <string name="email_4_time">2 hours ago</string>
 
+    <string name="email_4_time">2 hours ago</string>
     <string name="email_5_subject">Update to Your Itinerary</string>
     <string name="email_5_body" />
-    <string name="email_5_time">2 hours ago</string>
 
+    <string name="email_5_time">2 hours ago</string>
     <string name="email_6_subject">Recipe to try</string>
     <string name="email_6_body">
         Raspberry Pie: We should make this pie recipe tonight! The filling is very quick to put
         together.
     </string>
-    <string name="email_6_time">2 hours ago</string>
 
+    <string name="email_6_time">2 hours ago</string>
     <string name="email_7_subject">Delivered</string>
     <string name="email_7_body">
         Your shoes should be waiting for you at home!
     </string>
-    <string name="email_7_time">2 hours ago</string>
 
+    <string name="email_7_time">2 hours ago</string>
     <string name="email_8_subject">Your update on Google Play Store is live!</string>
     <string name="email_8_body">
         Your update, 0.1.1, is now live on the Play Store and available for your alpha users to
@@ -281,22 +285,22 @@
         them a link directly, go to your Google Play Console and follow the instructions for
         obtaining an open alpha testing link.
     </string>
-    <string name="email_8_time">3 hours ago</string>
 
+    <string name="email_8_time">3 hours ago</string>
     <string name="email_9_subject">(No subject)</string>
     <string name="email_9_body">
         Hey,\n\nWanted to email and see what you thought of
     </string>
-    <string name="email_9_time">3 hours ago</string>
 
+    <string name="email_9_time">3 hours ago</string>
     <string name="email_10_subject">Try a free TrailGo account</string>
     <string name="email_10_body">
         Looking for the best hiking trails in your area? TrailGo gets you on the path to the
         outdoors faster than you can pack a sandwich.\n\nWhether you\'re an experienced hiker or
         just looking to get outside for the afternoon, there\'s a segment that suits you.
     </string>
-    <string name="email_10_time">3 hours ago</string>
 
+    <string name="email_10_time">3 hours ago</string>
     <string name="email_11_subject">Free money</string>
     <string name="email_11_body">
         You\'ve been selected as a winner in our latest raffle! To claim your prize, click on the
@@ -317,12 +321,12 @@
     <string name="lunch_tray_app">Lunch Tray App</string>
     <string name="cupcake_app">Cupcake App</string>
     <string name="scramble_game">Scramble Game</string>
-    <string name="reply_app">Reply App</string>
     <!-- sports app start-->
     <!-- Strings used for fragments for navigation -->
+    <string name="reply_app">Reply App</string>
     <string name="list_fragment_label">Sports</string>
-    <string name="detail_fragment_label">Sport Info</string>
 
+    <string name="detail_fragment_label">Sport Info</string>
     <string name="baseball">Baseball</string>
     <string name="badminton">Badminton</string>
     <string name="basketball">Basketball</string>
@@ -333,9 +337,10 @@
     <string name="soccer">Soccer</string>
     <string name="swimming">Swimming</string>
     <string name="table_tennis">Table Tennis</string>
-    <string name="tennis">Tennis</string>
 
+    <string name="tennis">Tennis</string>
     <string name="sports_list_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices congue rutrum.</string>
+
     <string name="sport_detail_text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Praesent ultrices congue rutrum. Phasellus elementum ipsum ac convallis aliquam. Suspendisse
@@ -362,11 +367,6 @@
         eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor
         diam fringilla tellus, eu euismod mauris neque at neque.
     </string>
-
-    <plurals name="player_count_caption">
-        <item quantity="one">1 Player</item>
-        <item quantity="other">%1$d Players</item>
-    </plurals>
     <string name="olympic_caption">Olympic</string>
     <string name="sports_app">Sports App</string>
 
@@ -487,4 +487,20 @@
     <string name="indoor_vine">Indoor vine</string>
     <string name="ornamental_fig">Ornamental fig</string>
     <string name="delicious_multiple_fruit">Delicious multiple fruit</string>
+    <!-- view juice tracker -->
+    <string name="juice_app_name">Juice Tracker</string>
+    <string name="juice_type">Type of juice</string>
+    <string name="juice_name">Juice Name</string>
+    <string name="juice_description">Description</string>
+    <string name="juice_rating">Rating</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
+    <string name="juice_color">Color</string>
+
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+    <string name="cyan">Cyan</string>
+    <string name="yellow">Yellow</string>
+    <string name="magenta">Magenta</string>
 </resources>

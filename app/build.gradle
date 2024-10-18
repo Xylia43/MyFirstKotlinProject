@@ -4,6 +4,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
     id("com.google.devtools.ksp") version "1.9.20-1.0.14"
     id("kotlin-parcelize")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -38,6 +39,7 @@ android {
     }
     buildFeatures {
         compose true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion '1.5.1'
@@ -106,4 +108,9 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.8.1")
     // Work testing
     androidTestImplementation("androidx.work:work-testing:2.8.1")
+
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:${rootProject.ext["nav_version"]}")
+    implementation("androidx.navigation:navigation-ui-ktx:${rootProject.ext["nav_version"]}")
 }

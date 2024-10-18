@@ -50,6 +50,17 @@ object InvAppViewModelProvider {
         initializer {
             InvHomeViewModel(inventoryApplication().invContainer.itemsRepository)
         }
+        /**
+         * Juice view app
+         */
+        // Initializer for ItemEntryViewModel
+        initializer {
+            JuiceEntryViewModel(juiceTrackerApplication().juiceContainer.trackerRepository)
+        }
+        // Initializer for TrackerViewModel
+        initializer {
+            TrackerViewModel(juiceTrackerApplication().juiceContainer.trackerRepository)
+        }
     }
 }
 
@@ -58,4 +69,10 @@ object InvAppViewModelProvider {
  * [InventoryApplication].
  */
 fun CreationExtras.inventoryApplication(): MarsPhotosApplication =
+    (this[AndroidViewModelFactory.APPLICATION_KEY] as MarsPhotosApplication)
+/**
+ * Extension function to query for [Application] object and returns an instance of
+ * [JuiceTrackerApplication].
+ */
+fun CreationExtras.juiceTrackerApplication(): MarsPhotosApplication =
     (this[AndroidViewModelFactory.APPLICATION_KEY] as MarsPhotosApplication)
