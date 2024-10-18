@@ -8,11 +8,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.first.databinding.FragmentTrackerBinding
 import com.example.first.ui.InvAppViewModelProvider
 import com.example.first.ui.JuiceListAdapter
 import com.example.first.ui.TrackerViewModel
 import kotlinx.coroutines.launch
+
 /**
  * @className: first
  * @desc:
@@ -36,7 +38,9 @@ class JuiceTrackerFragment : Fragment() {
 
     private val adapter = JuiceListAdapter(
         onEdit = { drink ->
-
+            findNavController().navigate(
+                JuiceTrackerFragmentDirections.actionTrackerFragmentToEntryDialogFragment(drink.id)
+            )
         },
         onDelete = { drink ->
             viewModel.deleteJuice(drink)
@@ -48,7 +52,7 @@ class JuiceTrackerFragment : Fragment() {
         binding.recyclerView.adapter = adapter
 
         binding.fab.setOnClickListener { fabView ->
-
+            JuiceTrackerFragmentDirections.actionTrackerFragmentToEntryDialogFragment()
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
