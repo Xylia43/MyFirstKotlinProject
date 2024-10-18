@@ -550,16 +550,6 @@ fun MyAppList(modifier: Modifier = Modifier,navController: NavHostController) {
     }
 }
 
-fun Context.getImageUri(): Uri {
-    val resources = this.resources
-
-    return Uri.Builder()
-        .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
-        .authority(resources.getResourcePackageName(R.drawable.hello))
-        .appendPath(resources.getResourceTypeName(R.drawable.hello))
-        .appendPath(resources.getResourceEntryName(R.drawable.hello))
-        .build()
-}
 ///////////////////////
 /**
  * Kotlin fundamentals task 1
