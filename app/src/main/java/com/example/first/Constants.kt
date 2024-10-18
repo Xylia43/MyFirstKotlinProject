@@ -30,3 +30,18 @@ const val TAG_OUTPUT = "OUTPUT"
 const val KEY_BLUR_LEVEL = "KEY_BLUR_LEVEL"
 
 const val DELAY_TIME_MILLIS: Long = 3000
+// Notification Channel constants
+
+// water me app
+// Title of Notification for verbose notifications of background work
+//val NOTIFICATION_TITLE: CharSequence = "Water me!"
+
+
+// Request code for pending intent
+const val REQUEST_CODE = 0
+
+// Reminder schedule
+const val FIVE_SECONDS: Long = 5
+const val ONE_DAY: Long = 1
+const val SEVEN_DAYS: Long = 7
+const val THIRTY_DAYS: Long = 30

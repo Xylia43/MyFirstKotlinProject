@@ -15,6 +15,8 @@ import com.example.first.data.DefaultAppContainer
 import com.example.first.data.InvAppContainer
 import com.example.first.data.MarsAppContainer
 import com.example.first.data.UserPreferencesRepository
+import com.example.first.data.WaterMeAppContainer
+import com.example.first.data.WmAppContainer
 
 /**
  * @className: first
@@ -39,6 +41,8 @@ class MarsPhotosApplication : Application()  {
      */
     lateinit var userPreferencesRepository: UserPreferencesRepository
     lateinit var blurContainer: BlurAppContainer
+    /** AppContainer instance used by the rest of classes to obtain dependencies */
+    lateinit var waterMeContainer: WaterMeAppContainer
     override fun onCreate() {
         super.onCreate()
         marsContainer = DefaultAppContainer()
@@ -47,6 +51,7 @@ class MarsPhotosApplication : Application()  {
         busContainer = BusCcheduleContainer(this)
         userPreferencesRepository = UserPreferencesRepository(dataStore)
         blurContainer = BlurDefaultAppContainer(this)
+        waterMeContainer = WmAppContainer(this)
     }
 }
 private const val LAYOUT_PREFERENCE_NAME = "layout_preferences"

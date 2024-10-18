@@ -3,9 +3,6 @@ package com.example.first
 
 
 import android.annotation.SuppressLint
-import android.content.ContentResolver
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -58,6 +55,7 @@ import com.example.first.ui.SportsApp
 import com.example.first.ui.TaskMangerScreen
 import com.example.first.ui.TipTimeLayout
 import com.example.first.ui.Topic
+import com.example.first.ui.WaterMeApp
 import com.example.first.ui.WoofApp
 import com.example.first.ui.WordGameScreen
 import com.example.first.ui.theme.FirstTheme
@@ -122,7 +120,8 @@ enum class MyAppScreen() {
     InventoryApp,
     BusScheduleApp,
     DatastoreApp,
-    WmBlurImageApp
+    WmBlurImageApp,
+    WaterMeApp
 }
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -232,6 +231,9 @@ fun MyApp(
             }
             composable(route = MyAppScreen.WmBlurImageApp.name) {
                 BluromaticScreen()
+            }
+            composable(route = MyAppScreen.WaterMeApp.name) {
+                WaterMeApp()
             }
         }
 
@@ -542,6 +544,17 @@ fun MyAppList(modifier: Modifier = Modifier,navController: NavHostController) {
                 )
             ) {
                 Text(stringResource(id = R.string.blur_image))
+
+            }
+            Button(
+                onClick = { // go to a new page
+                    navController.navigate(MyAppScreen.WaterMeApp.name)
+                } ,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(red = 180 , green = 100 , blue = 100)
+                )
+            ) {
+                Text(stringResource(id = R.string.water_me_app))
 
             }
 
