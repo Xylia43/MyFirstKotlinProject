@@ -11,3 +11,8 @@ before:
 after: 
 <img width="1090" alt="image" src="https://github.com/user-attachments/assets/7a295c72-cf6f-46cb-92a1-177035b571b3">
 
+**WorkManager Practice Water me App**
+<img width="266" alt="image" src="https://github.com/user-attachments/assets/6d743b49-a156-44df-a776-c7072a6cda52">
+<img width="273" alt="image" src="https://github.com/user-attachments/assets/1ab421a5-4ac1-427c-a03d-bfa8aa0ab2a4">
+
+
