@@ -15,10 +15,13 @@
     <fragment
         android:id="@+id/entryDialogFragment"
         android:name="com.example.first.EntryDialogFragment"
-        android:label="EntryDialogFragment" >
+        android:label="fragment_entry_dialog"
+        tools:layout="@layout/fragment_entry_dialog"
+        >
         <argument
             android:name="itemId"
             app:argType="long"
             android:defaultValue="0L" />
     </fragment>
+
 </navigation>
